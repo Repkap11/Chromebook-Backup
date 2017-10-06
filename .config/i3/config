@@ -257,17 +257,18 @@ exec --no-startup-id gnome-keyring-daemon
 #bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 #bindsym XF86AudioMute exec amixer -q set Master toggle
 
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%- ; killall -USR1 i3status"
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+ ; killall -USR1 i3status"
+bindsym F9  exec "amixer -D pulse sset Master 5%- ; killall -USR1 i3status"
+bindsym F10 exec "amixer -D pulse sset Master 5%+ ; killall -USR1 i3status"
+bindsym F8 exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 #bindsym XF86AudioPlay exec playerctl play
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
 # brightness control
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 5
-bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym F6 exec xbacklight -steps 1 -time 0 -dec 5
+#bindsym F7 exec xbacklight -steps 1 -time 0 -inc 5
+
 
 # show battery stats
 bindsym XF86Battery exec gnome-power-statistics
@@ -317,9 +318,9 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+c exec compton-toggle
 exec xbindkeys
-exec slee 5 && telegram -startintray
+#exec slee 5 && telegram -startintray
 #exec --no-startup-id compton-start
-exec i3-msg workspace 2
+#exec i3-msg workspace 2
 exec i3-msg layout tabbed
 exec i3-msg workspace 1
 exec i3-msg layout tabbed
